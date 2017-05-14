@@ -390,32 +390,59 @@ function renderChart(planted_tree, element, object_id, treeProperties) {
 				  		if(treeProperties.treeLayout.leaf.activateDynamicColors){ return d.childFillColor; } else { return treeProperties.treeLayout.leaf.childFillColor }; 
 				  	}
 				  })
+				  .style("cursor", "pointer")
 				  .on("click", function(d) { toggle(d); update(d); })
-				  .on("mouseover", function(d) { if(treeProperties.treeMeasure.activateManualMeasure) node_onMouseOver(d);})
-				  .on("mouseout", function(d) {	
-				  	if(treeProperties.treeMeasure.activateManualMeasure)	// when the mouse leaves a circle, do the following
-				    toolTip.transition()									// declare the transition properties to fade-out the div
-				            .duration(500)									// it shall take 500ms
-				            .style("opacity", "0");							// and go all the way to an opacity of nil
-				    });
+				  // .on("mouseover", function(d) { if(treeProperties.treeMeasure.activateManualMeasure) node_onMouseOver(d);})
+				  // .on("mouseout", function(d) {	
+				  // 	if(treeProperties.treeMeasure.activateManualMeasure)	// when the mouse leaves a circle, do the following
+				  //   toolTip.transition()									// declare the transition properties to fade-out the div
+				  //           .duration(500)									// it shall take 500ms
+				  //           .style("opacity", "0");							// and go all the way to an opacity of nil
+				  //   })
+				  ;
 				
+				//Node name
 				nodeEnter.append("svg:text")
-				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? -15 : 15) : (d.children || d._children ? 15 : -15) : (d.children || d._children ? 0 : 0);	})
+				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? 4 : 15) : (d.children || d._children ? 15 : 15) : (d.children || d._children ? 0 : 0); })
+				  .attr("y", function(d) { return tree_orientation=="Horizontal" ? (d.children || d._children ? 20 : 0) : (d.children || d._children ? 0 : 0);	})
 				  .attr("dy", tree_orientation=="Horizontal" ? ".35em" : "1.85em")
-				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "end" : "start") : (d.children || d._children ? "start" : "end") : ( d.children || d._children ? "middle" : "middle"); })
+				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "middle" : "start") : (d.children || d._children ? "start" : "midle") : ( d.children || d._children ? "middle" : "middle"); })
 				  .text(function(d) { return d.name })
 				  .style("fill-opacity", 1e-6)
 				  .style("fill", font_color)
-				  .style("cursor", "pointer")
+				  //.style("cursor", "pointer")
 				  .on("click", function(d){ selectData(d) })
-				  .on("mouseover", function(d) { if(treeProperties.treeMeasure.activateManualMeasure) node_onMouseOver(d);})
-				  .on("mouseout", function(d) {	
-				  	if(treeProperties.treeMeasure.activateManualMeasure)	// when the mouse leaves a circle, do the following
-				    toolTip.transition()									// declare the transition properties to fade-out the div
-				            .duration(500)									// it shall take 500ms
-				            .style("opacity", "0")							// and go all the way to an opacity of nil
-				            .style("z-index", -1);							
-				    });
+				  // .on("mouseover", function(d) { if(treeProperties.treeMeasure.activateManualMeasure) node_onMouseOver(d);})
+				  // .on("mouseout", function(d) {	
+				  // 	if(treeProperties.treeMeasure.activateManualMeasure)	// when the mouse leaves a circle, do the following
+				  //   toolTip.transition()									// declare the transition properties to fade-out the div
+				  //           .duration(500)									// it shall take 500ms
+				  //           .style("opacity", "0")							// and go all the way to an opacity of nil
+				  //           .style("z-index", -1);							
+				  //   })
+				  ;
+
+				  //Node size
+				  nodeEnter.append("svg:text")
+				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? 15 : 15) : (d.children || d._children ? 15 : 15) : (d.children || d._children ? 0 : 0); })
+				  .attr("y", function(d) { return tree_orientation=="Horizontal" ? (d.children || d._children ? 35 : 15) : (d.children || d._children ? 0 : 0);	})
+				  .attr("dy", tree_orientation=="Horizontal" ? ".35em" : "1.85em")
+				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "start" : "start") : (d.children || d._children ? "start" : "start") : ( d.children || d._children ? "middle" : "middle"); })
+				  .text(function(d) { return d.size })
+				  .style("fill-opacity", 1)
+				  .style("fill", font_color)
+				  //.style("cursor", "pointer")
+				  .on("click", function(d){ selectData(d) })
+				  // .on("mouseover", function(d) { if(treeProperties.treeMeasure.activateManualMeasure) node_onMouseOver(d);})
+				  // .on("mouseout", function(d) {	
+				  // 	if(treeProperties.treeMeasure.activateManualMeasure)	// when the mouse leaves a circle, do the following
+				  //   toolTip.transition()									// declare the transition properties to fade-out the div
+				  //           .duration(500)									// it shall take 500ms
+				  //           .style("opacity", "0")							// and go all the way to an opacity of nil
+				  //           .style("z-index", -1);							
+				  //   })
+				  ;
+
 
 			// Transition nodes to their new position.
 			var nodeUpdate = node.transition()

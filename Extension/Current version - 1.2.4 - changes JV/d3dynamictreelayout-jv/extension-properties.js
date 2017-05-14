@@ -106,7 +106,8 @@ define( [], function () {
 						ref: "properties.treeMeasure.measure",
 						label: "Measure",
 						type: "string",
-						expression: "",
+						maxlength: 100000,
+						component: "textarea",
 						show: function( data ){ return data.properties.treeMeasure.activateManualMeasure; }
 					}//treeConfiguration.items.treeMeasure.items.measure
 				}//treeConfiguration.items.treeMeasure.items
@@ -241,28 +242,32 @@ define( [], function () {
 						ref: "properties.treeLayout.leaf.strokeColor",
 						label: "Node Stroke Color",
 						type: "string",
-						expression: "",
+						maxlength: 100000,
+						component: "textarea",
 						defaultValue: "#5C91BD"
 					},//treeConfiguration.items.treeLayout.items.leaf.strokeColor
 					leafParentFillColor: {
 						ref: "properties.treeLayout.leaf.parentFillColor",
 						label: "Parent Node Fill Color",
 						type: "string",
-						expression: "",
+						maxlength: 100000,
+						component: "textarea",
 						defaultValue: "#B0C4DE"
 					},//treeConfiguration.items.treeLayout.items.leaf.parentFillColor
 					leafChildFillColor: {
 						ref: "properties.treeLayout.leaf.childFillColor",
 						label: "Child Node Fill Color",
 						type: "string",
-						expression: "",
+						maxlength: 100000,
+						component: "textarea",
 						defaultValue: "#FFFFFF"
 					},//treeConfiguration.items.treeLayout.items.leaf.childFillColor
 					linkStrokeColor: {
 						ref: "properties.treeLayout.link.strokeColor",
 						label: "Link Stroke Color",
 						type: "string",
-						expression: "",
+						maxlength: 100000,
+						component: "textarea",
 						defaultValue: "#CCCCCC"
 					}//treeConfiguration.items.treeLayout.items.link.strokeColor
 				}//treeConfiguration.items.treeLayoutColors.items

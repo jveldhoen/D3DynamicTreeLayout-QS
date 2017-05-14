@@ -1,5 +1,5 @@
 {
-	"name": "d3dynamictreelayout-qs",
+	"name": "d3dynamictreelayout-jv",
 	"description": "An extension to represent an hierarchical tree, using D3",
 	"type": "visualization",
 	"version": "1.2.3",
