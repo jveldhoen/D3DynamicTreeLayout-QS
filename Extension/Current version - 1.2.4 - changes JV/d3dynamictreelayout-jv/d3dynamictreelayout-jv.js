@@ -406,7 +406,7 @@ function renderChart(planted_tree, element, object_id, treeProperties) {
 				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? 4 : 15) : (d.children || d._children ? 15 : 15) : (d.children || d._children ? 0 : 0); })
 				  .attr("y", function(d) { return tree_orientation=="Horizontal" ? (d.children || d._children ? 20 : 0) : (d.children || d._children ? 0 : 0);	})
 				  .attr("dy", tree_orientation=="Horizontal" ? ".35em" : "1.85em")
-				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "middle" : "start") : (d.children || d._children ? "start" : "midle") : ( d.children || d._children ? "middle" : "middle"); })
+				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "middle" : "start") : (d.children || d._children ? "start" : "middle") : ( d.children || d._children ? "middle" : "middle"); })
 				  .text(function(d) { return d.name })
 				  .style("fill-opacity", 1e-6)
 				  .style("fill", font_color)
@@ -424,10 +424,10 @@ function renderChart(planted_tree, element, object_id, treeProperties) {
 
 				  //Node size
 				  nodeEnter.append("svg:text")
-				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? 15 : 15) : (d.children || d._children ? 15 : 15) : (d.children || d._children ? 0 : 0); })
+				  .attr("x", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? 4 : 15) : (d.children || d._children ? 15 : 15) : (d.children || d._children ? 0 : 0); })
 				  .attr("y", function(d) { return tree_orientation=="Horizontal" ? (d.children || d._children ? 35 : 15) : (d.children || d._children ? 0 : 0);	})
 				  .attr("dy", tree_orientation=="Horizontal" ? ".35em" : "1.85em")
-				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "start" : "start") : (d.children || d._children ? "start" : "start") : ( d.children || d._children ? "middle" : "middle"); })
+				  .attr("text-anchor", function(d) { return tree_orientation=="Horizontal" ? treeProperties.treeLayout.orientation=="Horizontal_lr" ? (d.children || d._children ? "middle" : "start") : (d.children || d._children ? "start" : "start") : ( d.children || d._children ? "middle" : "middle"); })
 				  .text(function(d) { return d.size })
 				  .style("fill-opacity", 1)
 				  .style("fill", font_color)
